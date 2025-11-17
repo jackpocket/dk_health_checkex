@@ -33,5 +33,5 @@ defmodule HealthCheckexTest do
     assert get_resp_header(conn, "content-type") == ["application/json; charset=utf-8"]
   end
 
-  defp options(key), do: Application.get_env(:itk_health_checkex, key)
+  defp options(key), do: Application.get_env(:dk_health_checkex, key)
 end

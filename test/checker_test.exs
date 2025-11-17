@@ -10,15 +10,6 @@ defmodule CheckerTest do
       assert 2 = report.passing |> length
     end
 
-    test "passing with some warnings" do
-      report = HealthyPlug |> Checker.run([:service_3, :service_2, :service_1], options())
-
-      assert 200 = report.http_code
-      assert 2 = report.passing |> length
-      assert 1 = report.warning |> length
-      assert [:service_3] = report.warning
-    end
-
     test "failures" do
       report = FailedPlug |> Checker.run([:service_1], options())
 
@@ -45,5 +36,5 @@ defmodule CheckerTest do
     end
   end
 
-  defp options(), do: Application.get_all_env(:itk_health_checkex)
+  defp options(), do: Application.get_all_env(:dk_health_checkex)
 end

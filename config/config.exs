@@ -1,6 +1,6 @@
-use Mix.Config
+import Config
 
-config :itk_health_checkex,
+config :dk_health_checkex,
   timeout: 29_000,
   endpoint: "healthcheck"
 

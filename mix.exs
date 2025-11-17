@@ -1,12 +1,12 @@
-defmodule ITKHealthCheckex.MixProject do
+defmodule DKHealthCheckex.MixProject do
   use Mix.Project
 
-  @project_url "https://github.com/inside-track/itk_health_checkex"
+  @project_url "https://github.com/jackpocket/dk_health_checkex"
   @version "1.0.1"
 
   def project do
     [
-      app: :itk_health_checkex,
+      app: :dk_health_checkex,
       version: @version,
       elixir: "~> 1.8",
       description: description(),

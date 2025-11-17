@@ -1,23 +1,22 @@
-# ITK Health Checkex
+# DK Health Checkex
 
-[![CircleCI](https://img.shields.io/circleci/build/github/inside-track/itk_health_checkex.svg)](https://circleci.com/gh/inside-track/itk_health_checkex/tree/master)
-[![Hex version badge](https://img.shields.io/hexpm/v/itk_health_checkex.svg)](https://hex.pm/packages/itk_health_checkex)
+Forked from [ITK Health Check](https://github.com/inside-track/itk_health_checkex)
 
 **Plug based health check provided as macros.**
 
 ## Installation
 
-The package can be installed by adding `itk_health_checkex` to your list of dependencies in mix.exs:
+The package can be installed by adding `dk_health_checkex` to your list of dependencies in mix.exs:
 
 ```elixir
 def deps do
   [
-    {:itk_health_checkex, "~> 1.0.1"}
+    {:dk_health_checkex, "~> 1.0"}
   ]
 end
 ```
 
-After you are done, run `mix deps.get` in your shell to fetch and compile ITK Healthcheckex.
+After you are done, run `mix deps.get` in your shell to fetch and compile DK Healthcheckex.
 
 ## Configuration
 
@@ -30,7 +29,7 @@ Also you can config the endpoint you want to hit to run the checks. _default is:
 you can define it as follows:
 
 ```elixir
-config :itk_health_checkex,
+config :dk_health_checkex,
   timeout: 10_000,
   endpoint: "healthcheck"
 ```
@@ -66,13 +65,10 @@ your check should either return any of these values:
 | Return Value      | Result      | Message         | HTTP Response Status Code |
 |-------------------|-------------|-----------------|---------------------------|
 | `:ok`             | healthy     | "Healthy!"      | 200                       |
-| `{:ok, result}`   | healthy     | `result`        | 200                       |
-| `{:warn, result}` | healthy     | `result`        | 200                       |
 | `{:fail, result}` | not healthy | `result`        | 503                       |
 | `_`               | not healthy | Inspected error | 503                       |
 
-_If at least one check returned `{:fail, result}` or timedout then the app will be considered as not healthy, 
-and if all the checks return a `{:warn, result}` the app will be considered healthy._
+_If at least one check returned `{:fail, result}` or timedout then the app will be considered as not healthy
 
 ### Examples
 
@@ -90,7 +86,7 @@ and if all the checks return a `{:warn, result}` the app will be considered heal
   end
 
   healthcheck :database do
-    repos = [ITK.Repo]
+    repos = [DK.Repo]
 
     try do
       repos |> Enum.each(&Ecto.Adapters.SQL.query(&1, "select 1"))

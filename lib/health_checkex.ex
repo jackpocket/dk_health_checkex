@@ -1,6 +1,6 @@
 defmodule HealthCheckex do
   @moduledoc """
-  Documentation for ITK Healthcheckex.
+  Documentation for DK Healthcheckex.
   """
 
   @doc """
@@ -8,8 +8,6 @@ defmodule HealthCheckex do
 
   You should either return in the check block one of these values:
   `:ok`
-  `{:ok, result}`
-  `{:warn, result}`
   `{:fail, result}`
 
   Returns `{:ok, :service} | {:ok, :service, result} | {:fail, :service, result} | {:warn, :service, result} | {:error, :service, "Didn't get the right response from the check."}`
@@ -17,12 +15,6 @@ defmodule HealthCheckex do
   ## Examples
       iex> healthcheck(:service, do: :ok)
       {:ok, :service}
-
-      iex> healthcheck(:service, do: {:ok, "message"})
-      {:ok, :service, "message"}
-
-      iex> healthcheck(:service, do: {:warn, "message"})
-      {:warn, :service, "message"}
 
       iex> healthcheck(:service, do: {:fail, "message"})
       {:fail, :service, "message"}
@@ -41,14 +33,8 @@ defmodule HealthCheckex do
           :ok ->
             {:ok, unquote(name)}
 
-          {:ok, result} ->
-            {:ok, unquote(name), result}
-
           {:fail, result} ->
             {:fail, unquote(name), inspect(result)}
-
-          {:warn, result} ->
-            {:warn, unquote(name), inspect(result)}
 
           _ ->
             {:error, unquote(name), "Didn't get the right response from the check."}
@@ -77,7 +63,7 @@ defmodule HealthCheckex do
       def call(conn, _options) do
         options =
           [endpoint: "healthcheck", timeout: 29_000]
-          |> Keyword.merge(Application.get_all_env(:itk_health_checkex))
+          |> Keyword.merge(Application.get_all_env(:dk_health_checkex))
 
         options |> Keyword.get(:endpoint) |> do_call(conn, options)
       end
