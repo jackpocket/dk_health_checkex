@@ -2,7 +2,7 @@ defmodule DKHealthCheckex.MixProject do
   use Mix.Project
 
   @project_url "https://github.com/jackpocket/dk_health_checkex"
-  @version "1.0.1"
+  @version "1.1.0"
 
   def project do
     [
@@ -45,7 +45,7 @@ defmodule DKHealthCheckex.MixProject do
 
   defp package do
     [
-      maintainers: ["Ramy Tamer", "Islam Hamdi"],
+      maintainers: ["Draftkings"],
       files: ~w(lib config test .formatter.exs mix.exs README*),
       licenses: ["MIT"],
       links: %{
