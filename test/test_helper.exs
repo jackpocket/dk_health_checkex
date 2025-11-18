@@ -8,8 +8,7 @@ end
 defmodule HealthyPlug do
   use HealthCheckex
 
-  healthcheck(:service_3, do: {:warn, RuntimeError})
-  healthcheck(:service_2, do: {:ok, "some result message"})
+  healthcheck(:service_2, do: :ok)
   healthcheck(:service_1, do: :ok)
 end
 
