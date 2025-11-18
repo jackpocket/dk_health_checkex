@@ -8,7 +8,7 @@ defmodule DKHealthCheckex.MixProject do
     [
       app: :dk_health_checkex,
       version: @version,
-      elixir: "~> 1.8",
+      elixir: "~> 1.15",
       description: description(),
       source_url: @project_url,
       homepage_url: @project_url,
@@ -35,7 +35,7 @@ defmodule DKHealthCheckex.MixProject do
     [
       {:plug, "~> 1.0"},
       {:jason, "~> 1.0"},
-      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.39", only: :dev, runtime: false},
       {:credo, git: "https://github.com/rrrene/credo.git", only: [:dev, :test]},
       {:dialyxir, "~> 0.5", only: :dev, runtime: false}
     ]
