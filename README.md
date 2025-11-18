@@ -11,7 +11,7 @@ The package can be installed by adding `dk_health_checkex` to your list of depen
 ```elixir
 def deps do
   [
-    {:dk_health_checkex, "~> 1.0"}
+    {:dk_health_checkex, "~> 1.1"}
   ]
 end
 ```
